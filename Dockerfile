@@ -1,23 +1,40 @@
-# Use an official Node.js runtime as the base image
-FROM node:18-alpine
+# Stage 1
+FROM node:12.14.0-alpine3.9 AS staging
 
-# Set the working directory in the container
-WORKDIR /app
+ARG ENV_FILE
 
-# Copy package.json and package-lock.json to the container
-COPY package*.json ./
+RUN apk add python make git --update
 
-# Install dependencies
-RUN npm install --production
+RUN mkdir /home/data
 
-# Copy the rest of the application code to the container
-COPY . .
+WORKDIR /home/code
 
-# Build the Next.js application
+COPY . /home/code
+
+RUN echo $ENV_FILE | base64 -d > .env
+
+RUN npm install && rm -rf /var/cache/apk/*
+
 RUN npm run build
 
-# Expose the port the app runs on
-EXPOSE 3000
+FROM alpine:3.14 as docker_files
+WORKDIR /home/code
+ARG USERNAME
+ARG PASSWORD
+RUN apk update && apk add git
+RUN git clone -b main "https://${USERNAME}:${PASSWORD}@gitlab.com/trulymadly/tm-infra/tm-deployment-utils.git"
 
-# Start the Next.js application
-CMD ["npm", "start"]
+# Stage 2
+
+FROM nginx:1.17.8-alpine
+
+COPY --from=staging /home/code /usr/share/nginx/html
+
+RUN rm /etc/nginx/conf.d/default.conf
+
+COPY --from=docker_files /home/code/tm-deployment-utils/docker/nginx/pwa.conf /etc/nginx/conf.d
+COPY --from=docker_files /home/code/tm-deployment-utils/docker/startup-pwa.sh /home/code/startup-pwa.sh
+
+EXPOSE 80
+
+CMD ["nginx", "-g", "daemon off;"]

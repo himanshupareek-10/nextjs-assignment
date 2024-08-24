@@ -1,13 +1,61 @@
-# You can override the included template(s) by including variable overrides
-# SAST customization: https://docs.gitlab.com/ee/user/application_security/sast/#customizing-the-sast-settings
-# Secret Detection customization: https://docs.gitlab.com/ee/user/application_security/secret_detection/pipeline/#customization
-# Dependency Scanning customization: https://docs.gitlab.com/ee/user/application_security/dependency_scanning/#customizing-the-dependency-scanning-settings
-# Container Scanning customization: https://docs.gitlab.com/ee/user/application_security/container_scanning/#customizing-the-container-scanning-settings
-# Note that environment variables can be set in several places
-# See https://docs.gitlab.com/ee/ci/variables/#cicd-variable-precedence
-stages:
-- test
-sast:
-  stage: test
-include:
-- template: Security/SAST.gitlab-ci.yml
+build_for_stage:
+  image: docker:19.03.12
+  stage: build
+  variables:
+    ENV_FILE: ''
+  tags:
+    - gcp
+  services:
+    - docker:19.03.12-dind
+  before_script:
+    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+    - ENV_FILE=$(base64 -i /home/gitlab-runner/tm-kube-conf-gcp/tm-calculator-seo-service/.env.staging | tr -d '\n')
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "master"'
+  script:
+    - docker pull $CI_REGISTRY_IMAGE:latest-staging || true
+    - docker build --cache-from $CI_REGISTRY_IMAGE:latest-staging --tag $CI_REGISTRY_IMAGE:${CI_COMMIT_SHA}-staging --tag $CI_REGISTRY_IMAGE:latest-staging --build-arg USERNAME=$USERNAME --build-arg PASSWORD=$PASSWORD --build-arg ENV_FILE=$ENV_FILE .
+    - docker push $CI_REGISTRY_IMAGE:${CI_COMMIT_SHA}-staging
+    - docker push $CI_REGISTRY_IMAGE:latest-staging
+build_for_prod:
+  image: docker:19.03.12
+  stage: build
+  variables:
+    ENV_FILE: base64 -i /home/gitlab-runner/tm-kube-conf-gcp/tm-calculator-seo-service.env | tr -d '\n'
+  tags:
+    - gcp
+  services:
+    - docker:19.03.12-dind
+  before_script:
+    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+    - ENV_FILE=$(base64 -i /home/gitlab-runner/tm-kube-conf-gcp/tm-calculator-seo-service/.env | tr -d '\n')
+  rules:
+    - if: '$CI_COMMIT_TAG'
+  script:
+    - docker pull $CI_REGISTRY_IMAGE:latest || true
+    - docker build --cache-from $CI_REGISTRY_IMAGE:latest --tag $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA --tag $CI_REGISTRY_IMAGE:latest --build-arg USERNAME=$USERNAME --build-arg PASSWORD=$PASSWORD --build-arg ENV_FILE=$ENV_FILE .
+    - docker push $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA
+    - docker push $CI_REGISTRY_IMAGE:latest
+deploy_to_staging_gcp:
+  stage: deploy
+  tags:
+    - kube-conf-runner-1
+  variables:
+    IMAGE_TAG: $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "master"'
+  script:
+    - kubectl config use-context gke_tm-backend_asia-south1_stage-tm-backend-gke
+    - cd ~/tm-kube-conf-gcp/tm-calculator-seo-service && helm upgrade --install tm-calculator-seo-service --set "image.tag=${CI_COMMIT_SHA}-staging" --set "autoScale.isEnabled=false" --namespace staging .
+deploy_to_prod_gcp:
+  stage: deploy
+  tags:
+    - kube-conf-runner-1
+  variables:
+    IMAGE_TAG: $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG
+  rules:
+  - if: "$CI_COMMIT_TAG"
+    when: manual
+  script:
+    - kubectl config use-context gke_tm-backend_asia-south1_prod-tm-backend-gke
+    - cd ~/tm-kube-conf-gcp/tm-calculator-seo-service && helm upgrade --install tm-calculator-seo-service --set "image.tag=$CI_COMMIT_SHA" --namespace production .
