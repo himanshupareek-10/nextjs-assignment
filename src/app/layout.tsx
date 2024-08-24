@@ -24,13 +24,13 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <LoginProvider>
-        <AuthProvider>
-          <Header/>
-          {children}
-          <Footer/>
-        </AuthProvider>
+          <AuthProvider>
+            <Header />
+            {children}
+            <Footer />
+          </AuthProvider>
         </LoginProvider>
-        </body>
+      </body>
     </html>
   );
 }
