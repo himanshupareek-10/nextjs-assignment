@@ -9,7 +9,6 @@ build_for_stage:
     - docker:19.03.12-dind
   before_script:
     - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
-    - ENV_FILE=$(base64 -i /home/gitlab-runner/tm-kube-conf-gcp/tm-calculator-seo-service/.env.staging | tr -d '\n')
   rules:
     - if: '$CI_COMMIT_BRANCH == "master"'
   script:
@@ -28,7 +27,6 @@ build_for_prod:
     - docker:19.03.12-dind
   before_script:
     - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
-    - ENV_FILE=$(base64 -i /home/gitlab-runner/tm-kube-conf-gcp/tm-calculator-seo-service/.env | tr -d '\n')
   rules:
     - if: '$CI_COMMIT_TAG'
   script:
