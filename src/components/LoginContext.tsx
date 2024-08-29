@@ -24,13 +24,8 @@ export const LoginProvider = ({ children }: LoginProviderProps) => {
     });
   };
 
-  const setLoginVisible = (visible: boolean) => {
-    setShowLogin(visible);
-    localStorage.setItem('showLogin', JSON.stringify(visible));
-  };
-
   return (
-    <LoginContext.Provider value={{ showLogin, ToggleLogin, setLoginVisible }}>
+    <LoginContext.Provider value={{ showLogin, ToggleLogin, }}>
       {children}
     </LoginContext.Provider>
   );

@@ -34,7 +34,6 @@ export interface CalculatorPageProps {
 export interface LoginContextProps{
   showLogin: boolean;
   ToggleLogin: () => void;
-  setLoginVisible: () => void;
 }
 
 export interface LoginProviderProps {
