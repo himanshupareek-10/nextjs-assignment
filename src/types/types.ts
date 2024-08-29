@@ -22,7 +22,6 @@ export interface CalculatorData extends Calculator {
   description: string;
   title: string;
   subtitle: string;
-  transformedName: string;
   list: CalculatorData[];
 }
 
