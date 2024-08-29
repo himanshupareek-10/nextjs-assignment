@@ -1,10 +1,10 @@
 import Image from 'next/image';
 import React from 'react';
 import Link from 'next/link';
-import { CalculatorPageProps, } from '@/types/types';
+import { CalculatorData, CalculatorPageProps, } from '@/types/types';
 import CalInput from './CalcInput';
 
-const CalculatorLayout: React.FC<Omit<CalculatorPageProps, 'id' | 'subtitle'>> = ({ title, name, description, list, }) => {
+const CalculatorLayout: React.FC<Omit<CalculatorData, 'id' | 'subtitle'>> = ({ title, name, description, list, }) => {
   const filteredList = list.filter(calculator => calculator.name !== name);
   return(
   <>

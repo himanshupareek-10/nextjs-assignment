@@ -25,7 +25,7 @@ export interface CalculatorData extends Calculator {
   list: CalculatorData[];
 }
 
-export interface CalculatorPageProps extends CalculatorData {
+export interface CalculatorPageProps {
   params: {
     calculator: string;
   };

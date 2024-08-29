@@ -1,7 +1,7 @@
 import { notFound } from 'next/navigation';
 import { CalculatorData, CalculatorPageProps } from '@/types/types';
 import { API_ENDPOINTS } from '@/utils/api';
-import CalculatorLayout from '@/components/Calculatorlayout';
+import CalculatorLayout from '@/components/CalculatorLayout';
 
 async function fetchCalculators(): Promise<CalculatorData[]> {
   const res = await fetch(API_ENDPOINTS.getListCalculator, {
