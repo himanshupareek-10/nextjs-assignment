@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { CalculatorPageProps, } from '@/types/types';
 import CalInput from './CalcInput';
 
-const CalculatorLayout: React.FC<CalculatorPageProps> = ({ title, name, description, list, }) => {
+const CalculatorLayout: React.FC<Omit<CalculatorPageProps, 'params'>> = ({ title, name, description, list, }) => {
   const filteredList = list.filter(calculator => calculator.name !== name);
   return(
   <>
