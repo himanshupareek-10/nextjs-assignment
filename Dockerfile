@@ -32,8 +32,8 @@ COPY --from=staging /home/code /usr/share/nginx/html
 
 RUN rm /etc/nginx/conf.d/default.conf
 
-COPY --from=docker_files /home/code/tm-deployment-utils/docker/nginx/pwa.conf /etc/nginx/conf.d
-COPY --from=docker_files /home/code/tm-deployment-utils/docker/startup-pwa.sh /home/code/startup-pwa.sh
+COPY --from=docker_files /home/code/tm-deployment-utils/docker/nginx/calculator-seo.conf /etc/nginx/conf.d
+COPY --from=docker_files /home/code/tm-deployment-utils/docker/startup-calculator-seo.sh /home/code/startup-calculator-seo.sh
 
 EXPOSE 80
 
