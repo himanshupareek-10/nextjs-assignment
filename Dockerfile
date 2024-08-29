@@ -1,5 +1,5 @@
 # Stage 1
-FROM node:18.17.0-alpine3.9 AS staging
+FROM node:18.17.0-alpine3.18 AS staging
 
 ARG ENV_FILE
 
