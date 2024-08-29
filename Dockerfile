@@ -3,7 +3,7 @@ FROM node:18.17.0-alpine3.18 AS staging
 
 ARG ENV_FILE
 
-RUN apk add python make git --update
+RUN apk add python3 make git --update
 
 RUN mkdir /home/data
 
