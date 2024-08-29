@@ -1,7 +1,6 @@
 import Image from 'next/image';
 import React from 'react';
 import Link from 'next/link';
-import Footer from './Footer';
 import { CalculatorPageProps, } from '@/types/types';
 import CalInput from './CalcInput';
 

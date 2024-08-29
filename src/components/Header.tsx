@@ -26,7 +26,7 @@ const Header = () => {
         aria-label="Toggle navigation"
         onClick={toggleMenu}
       >
-        <span className={`${isOpen ? "hidden" : "block"}`}>
+        <span className={`${isOpen ? 'hidden' : 'block'}`}>
           <svg
             width="24"
             height="24"
@@ -50,7 +50,7 @@ const Header = () => {
             ></path>
           </svg>
         </span>
-        <span className={`${isOpen ? "block" : "hidden"}`}>
+        <span className={`${isOpen ? 'block' : 'hidden'}`}>
           <svg
             width="24"
             height="24"
@@ -78,7 +78,7 @@ const Header = () => {
 
       <div
         className={`absolute bg-white w-[400px] top-[50px] left-0 p-[10px] transition-all duration-300 ease-in-out ${
-          isOpen ? "block" : "hidden"
+          isOpen ? 'block' : 'hidden'
         } sm:w-full sm:max-h-[60vh] sm:overflow-y-auto md:w-[400px]`}
       >
         <ul className="list-none p-0">
