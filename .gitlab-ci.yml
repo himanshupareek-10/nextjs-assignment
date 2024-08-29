@@ -4,7 +4,7 @@ build_for_stage:
   variables:
     ENV_FILE: ''
   tags:
-    - docker-executor
+    - gcp
   services:
     - docker:19.03.12-dind
   before_script:
@@ -23,7 +23,7 @@ build_for_prod:
   variables:
     ENV_FILE: base64 -i /home/gitlab-runner/tm-kube-conf-gcp/tm-calculator-seo-service.env | tr -d '\n'
   tags:
-    - docker-executor
+    - gcp
   services:
     - docker:19.03.12-dind
   before_script:
