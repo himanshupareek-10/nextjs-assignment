@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import React from 'react';
 import Link from 'next/link';
-import { CalculatorData, CalculatorPageProps, } from '@/types/types';
+import { CalculatorData, } from '@/types/types';
 import CalInput from './CalcInput';
 
 const CalculatorLayout: React.FC<Omit<CalculatorData, 'id' | 'subtitle'>> = ({ title, name, description, list, }) => {
