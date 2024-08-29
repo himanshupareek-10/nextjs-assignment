@@ -3,6 +3,7 @@ import { Carousel } from 'react-bootstrap';
 import '../styles/styles.css'
 import '../app/globals.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Image from 'next/image';
 
 const Carousel_Images = [
     { url: 'https://cdni.trulymadly.com/tm-static-assets-production/images/admin/carousal-couple-1.webp' },
@@ -17,11 +18,13 @@ const LoginCarousel = () => {
                 <Carousel indicators controls={false} interval={3000} pause={false}>
                     {Carousel_Images.slice(0, 3).map((item, index) => (
                         <Carousel.Item key={index}>
-                            <img
+                            <Image
                                 className="d-block w-full"
                                 src={item.url}
                                 alt={`Slide ${index}`}
                                 loading="lazy"
+                                height={500}
+                                width={500}
                             />
                         </Carousel.Item>
                     ))}

@@ -1,7 +1,7 @@
-import { CalculatorData, } from "@/types/types";
-import { API_ENDPOINTS, } from "@/utils/api";
-import Image from "next/image";
-import Link from "next/link";
+import { CalculatorData, } from '@/types/types';
+import { API_ENDPOINTS, } from '@/utils/api';
+import Image from 'next/image';
+import Link from 'next/link';
 
 async function fetchCalculators(): Promise<CalculatorData[]> {
     const res = await fetch(API_ENDPOINTS.getListCalculator, {
@@ -34,7 +34,7 @@ const page = async () => {
                 </div>
                 <div className="px-2.5">
                     <h1 className="text-2xl leading-base text-common">Meaning of Relationship</h1>
-                    <p>Relationships became categorised, and each has a set of behavioural signals attached to it. Generally, that's a helpful thing to deal with awkward social interactions. But sometimes, it may lead to confusion in an individual's mind, especially when mixed feelings are involved. In such cases, one needs some external point of view to sort out their thoughts and emotions. That is when astrology may be of help! We have for you some of the best relationship calculators that will help you understand your relationships better!</p>
+                    <p>Relationships became categorised, and each has a set of behavioural signals attached to it. Generally, that&apos;s a helpful thing to deal with awkward social interactions. But sometimes, it may lead to confusion in an individual&apos;s mind, especially when mixed feelings are involved. In such cases, one needs some external point of view to sort out their thoughts and emotions. That is when astrology may be of help! We have for you some of the best relationship calculators that will help you understand your relationships better!</p>
                     <p>In the ideal sense, a relationship is a bond between two people based on mutual affection, respect, care and solidarity. The core idea of a relationship is attachment. However, a relationship can have many aspects to it. Any relationship is a complex interaction between two people, where their mental, psychological and emotional traits play a significant role in determining how the relationship will be. Apart from the core emotions, some other feelings also change from relationship to relationship, depending on their nature. Some of them are protectiveness, attraction, selflessness and so on.</p>
                     <p>In the ideal sense, a relationship is a bond between two people based on mutual affection, respect, care and solidarity. The core idea of a relationship is attachment. However, a relationship can have many aspects to it. Any relationship is a complex interaction between two people, where their mental, psychological and emotional traits play a significant role in determining how the relationship will be. Apart from the core emotions, some other feelings also change from relationship to relationship, depending on their nature. Some of them are protectiveness, attraction, selflessness and so on.</p>
                     <p>But in the present scenario, where interaction is part and parcel of life, and social skills can make or break your lifestyle, relationships have taken more of a practical approach. The idea of colleagues, associates and such took popularity with more and more people working at the same place, but with no need to communicate with each other. Instead, these relations are built on shared experiences regarding the same place, person or event. Sometimes, things develop beyond work, and people find others who share interests with them beyond their shared workload. But many times, that is different. As a result, many relationships, especially of this nature, are often quite impersonal.</p>
