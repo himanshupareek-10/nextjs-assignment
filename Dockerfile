@@ -34,7 +34,9 @@ RUN ln -s /usr/local/lib/node_modules/npm/bin/npm-cli.js /usr/local/bin/npm
 
 COPY --from=build /home/code /usr/share/nginx/html
 
-RUN rm /etc/nginx/conf.d/default.conf
+RUN npm run start --prefix /usr/share/nginx/html
+
+RUN chown -R www-data:www-data /home/code
 
 COPY --from=docker_files /home/code/tm-deployment-utils/docker/nginx/calculator-seo.conf /etc/nginx/conf.d
 COPY --from=docker_files /home/code/tm-deployment-utils/docker/startup-calculator-seo.sh /home/code/startup-calculator-seo.sh
