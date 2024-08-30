@@ -32,7 +32,7 @@ COPY --from=build /usr/local/lib/node_modules /usr/local/lib/node_modules
 COPY --from=build /usr/local/bin/node /usr/local/bin/node
 RUN ln -s /usr/local/lib/node_modules/npm/bin/npm-cli.js /usr/local/bin/npm
 
-COPY --from=staging /home/code /usr/share/nginx/html
+COPY --from=build /home/code /usr/share/nginx/html
 
 RUN rm /etc/nginx/conf.d/default.conf
 
