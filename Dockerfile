@@ -28,6 +28,8 @@ RUN git clone -b main "https://${USERNAME}:${PASSWORD}@gitlab.com/trulymadly/tm-
 
 FROM node:18.17.0-alpine3.18
 
+ENV NODE_ENV=production
+
 RUN apk add --no-cache nginx
 
 COPY --from=build /home/code /usr/share/nginx/html
