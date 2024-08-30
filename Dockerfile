@@ -26,15 +26,11 @@ RUN git clone -b main "https://${USERNAME}:${PASSWORD}@gitlab.com/trulymadly/tm-
 
 # Stage 2
 
-FROM nginx:1.25.2-alpine3.18
+FROM node:18.17.0-alpine3.18
 
-COPY --from=build /usr/local/lib/node_modules /usr/local/lib/node_modules
-COPY --from=build /usr/local/bin/node /usr/local/bin/node
-RUN ln -s /usr/local/lib/node_modules/npm/bin/npm-cli.js /usr/local/bin/npm
+RUN apk add --no-cache nginx
 
 COPY --from=build /home/code /usr/share/nginx/html
-
-RUN rm /etc/nginx/conf.d/default.conf
 
 COPY --from=docker_files /home/code/tm-deployment-utils/docker/nginx/calculator-seo.conf /etc/nginx/conf.d
 COPY --from=docker_files /home/code/tm-deployment-utils/docker/startup-calculator-seo.sh /home/code/startup-calculator-seo.sh
