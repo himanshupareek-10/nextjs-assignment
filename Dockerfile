@@ -32,8 +32,6 @@ RUN apk add --no-cache nginx
 
 COPY --from=build /home/code /usr/share/nginx/html
 
-RUN chown -R www-data:www-data /home/code
-
 COPY --from=docker_files /home/code/tm-deployment-utils/docker/nginx/calculator-seo.conf /etc/nginx/conf.d
 COPY --from=docker_files /home/code/tm-deployment-utils/docker/startup-calculator-seo.sh /home/code/startup-calculator-seo.sh
 
