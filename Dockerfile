@@ -28,6 +28,8 @@ RUN git clone -b main "https://${USERNAME}:${PASSWORD}@gitlab.com/trulymadly/tm-
 
 FROM nginx:1.17.8-alpine
 
+RUN apk add --no-cache libstdc++ libc6-compat
+
 COPY --from=staging /usr/local/lib/node_modules /usr/local/lib/node_modules
 COPY --from=staging /usr/local/bin/node /usr/local/bin/node
 RUN ln -s /usr/local/lib/node_modules/npm/bin/npm-cli.js /usr/local/bin/npm
