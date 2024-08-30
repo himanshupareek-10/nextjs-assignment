@@ -17,7 +17,7 @@ RUN npm install && rm -rf /var/cache/apk/*
 
 RUN npm run build
 
-FROM alpine:3.14 as docker_files
+FROM alpine:3.18 as docker_files
 WORKDIR /home/code
 ARG USERNAME
 ARG PASSWORD
