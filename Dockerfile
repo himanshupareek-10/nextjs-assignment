@@ -39,6 +39,4 @@ RUN rm /etc/nginx/conf.d/default.conf
 COPY --from=docker_files /home/code/tm-deployment-utils/docker/nginx/calculator-seo.conf /etc/nginx/conf.d
 COPY --from=docker_files /home/code/tm-deployment-utils/docker/startup-calculator-seo.sh /home/code/startup-calculator-seo.sh
 
-EXPOSE 80
-
-CMD ["nginx", "-g", "daemon off;"]
+CMD ["/bin/sh", "/home/code/startup-calculator-seo.sh"]
