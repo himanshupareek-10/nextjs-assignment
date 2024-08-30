@@ -1,5 +1,5 @@
 # Stage 1
-FROM node:18.17.0-alpine3.18 AS staging
+FROM node:18.17.0-alpine3.18 AS build
 
 ARG ENV_FILE
 
@@ -26,12 +26,10 @@ RUN git clone -b main "https://${USERNAME}:${PASSWORD}@gitlab.com/trulymadly/tm-
 
 # Stage 2
 
-FROM nginx:1.17.8-alpine
+FROM nginx:1.25.2-alpine3.18
 
-RUN apk add --no-cache libstdc++ libc6-compat
-
-COPY --from=staging /usr/local/lib/node_modules /usr/local/lib/node_modules
-COPY --from=staging /usr/local/bin/node /usr/local/bin/node
+COPY --from=build /usr/local/lib/node_modules /usr/local/lib/node_modules
+COPY --from=build /usr/local/bin/node /usr/local/bin/node
 RUN ln -s /usr/local/lib/node_modules/npm/bin/npm-cli.js /usr/local/bin/npm
 
 COPY --from=staging /home/code /usr/share/nginx/html
