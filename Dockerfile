@@ -1,11 +1,7 @@
 # Stage 1
 FROM node:18.17.0-alpine3.18 AS build
 
-ARG ENV_FILE
-
 RUN apk add python3 make git --update
-
-RUN mkdir /home/data
 
 WORKDIR /home/code
 
@@ -28,13 +24,14 @@ RUN git clone -b main "https://${USERNAME}:${PASSWORD}@gitlab.com/trulymadly/tm-
 
 FROM node:18.17.0-alpine3.18
 
-ENV NODE_ENV=production
-
 RUN apk add --no-cache nginx
+
+RUN apk add --no-cache supervisor
 
 COPY --from=build /home/code /usr/share/nginx/html
 
 COPY --from=docker_files /home/code/tm-deployment-utils/docker/nginx/calculator-seo.conf /etc/nginx/conf.d
+COPY --from=docker_files /home/code/tm-deployment-utils/docker/supervisor/supervisor.conf /etc/supervisor.conf
 COPY --from=docker_files /home/code/tm-deployment-utils/docker/startup-calculator-seo.sh /home/code/startup-calculator-seo.sh
 
 CMD ["/bin/sh", "/home/code/startup-calculator-seo.sh"]
