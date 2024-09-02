@@ -34,7 +34,7 @@ RUN mkdir -p /usr/share/nginx/app/public \
 COPY --from=builder /home/code/next.config.mjs /usr/share/nginx/app
 COPY --from=builder /home/code/postcss.config.mjs /usr/share/nginx/app
 COPY --from=builder /home/code/tailwind.config.ts /usr/share/nginx/app
-COPY --from=builder /home/code/tailwind.json /usr/share/nginx/app
+COPY --from=builder /home/code/tsconfig.json /usr/share/nginx/app
 COPY --from=builder /home/code/next-env.d.ts /usr/share/nginx/app
 COPY --from=builder /home/code/public /usr/share/nginx/app/public
 COPY --from=builder /home/code/build /usr/share/nginx/app/build
