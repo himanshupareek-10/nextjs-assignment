@@ -28,11 +28,7 @@ COPY --from=builder /usr/local/lib/node_modules /usr/local/lib/node_modules
 COPY --from=builder /usr/local/bin/node /usr/local/bin/node
 RUN ln -s /usr/local/lib/node_modules/npm/bin/npm-cli.js /usr/local/bin/npm
 
-COPY --from=builder /home/code/next.config.mjs /usr/share/nginx/html
-COPY --from=builder /home/code/public /usr/share/nginx/html/public
-COPY --from=builder /home/code/build /usr/share/nginx/html/build
-COPY --from=builder /home/code/node_modules /usr/share/nginx/html/node_modules
-COPY --from=builder /home/code/package.json /usr/share/nginx/html/package.json
+COPY --from=builder /home/code /usr/share/nginx/html
 
 RUN rm /etc/nginx/conf.d/default.conf
 
