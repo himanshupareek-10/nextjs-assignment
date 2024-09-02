@@ -9,8 +9,6 @@ COPY . /home/code
 
 RUN echo $ENV_FILE | base64 -d > .env
 
-RUN npm install && rm -rf /var/cache/apk/*
-
 RUN npm run build
 
 FROM alpine:3.18 as docker_files
