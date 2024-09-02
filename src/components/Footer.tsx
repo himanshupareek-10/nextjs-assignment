@@ -13,7 +13,7 @@ const Footer = () => {
         <div className='bg-common md:px-[156px] md:py-[78px] flex text-[#FFFFFF] flex-col justify-between px-[20px] py-[50px] gap-2.5'>
             <div className='flex justify-between'>
                 <div className='hidden md:block'>
-                    <Image src="https://cdni.trulymadly.com/tm-static-assets-production/images/admin/tmlogo.png" width={192} height={67} alt='/' />
+                    <Image src="https://cdni.trulymadly.com/tm-static-assets-production/images/admin/tmlogo.png" width={192} height={67} alt='/' unoptimized />
                 </div>
                 <div className='flex md:gap-6 gap-[15px] flex-wrap'>
                     <div className='flex flex-col gap-4 order-first'>

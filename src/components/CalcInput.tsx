@@ -84,7 +84,7 @@ const CalcInput: FC<Calculator> = ({ name, title }) => {
             </div>
             <div className='flex items-center md:flex-col gap-[1.5px] justify-center'>
               <div className='md:h-11 md:w-px bg-[#FFDEEB] w-11 h-px'></div>
-              <div><Image src="https://cdni.trulymadly.com/tm-static-assets-production/images/admin/fi_15761308%20(1).png" alt='heart-icon' width={48} height={48} /></div>
+              <div><Image src="https://cdni.trulymadly.com/tm-static-assets-production/images/admin/fi_15761308%20(1).png" alt='heart-icon' width={48} height={48} unoptimized /></div>
               <div className='md:h-11 md:w-px bg-[#FFDEEB] w-11 h-px'></div>
             </div>
             <div className='md:w-1/2 flex flex-col gap-2.5 w-full'>

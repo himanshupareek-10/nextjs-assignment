@@ -23,7 +23,7 @@ const page = async () => {
                 <div className="bg-[#E7F4FF] p-[20px] flex flex-col gap-[20px] flex-wrap md:flex-row justify-center items-center">
                     {calculatorList.map((item) =>
                     (<div className="px-2 py-2 bg-[#FFFFFF] rounded-[20px] flex gap-2.5 items-center md:w-[30%] w-full" key={item.id}>
-                        <Image src="https://cdni.trulymadly.com/tm-static-assets-production/images/admin/Frame%20180.png" height={100} width={100} alt="/" />
+                        <Image src="/Frame%20180.png" height={100} width={100} alt="/" />
                         <div className="flex flex-col">
                             <h5 className="font-medium text-base leading-5">{item.title}</h5>
                             <p className="font-[450] text-xs leading-4">{item.subtitle}</p>

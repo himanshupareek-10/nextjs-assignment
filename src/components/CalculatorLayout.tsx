@@ -25,25 +25,25 @@ const CalculatorLayout: React.FC<Omit<CalculatorData, 'id' | 'subtitle'>> = ({ t
             <div className='md:w-1/2'>
               <Image src="https://cdni.trulymadly.com/tm-static-assets-production/images/admin/Frame%20590%201.png" alt='seo-wall'
                 width={335}
-                height={335} className='flex justify-center items-center' />
+                height={335} className='flex justify-center items-center' unoptimized />
             </div>
             <div className='flex flex-col gap-5 md:w-full'>
               <div className='flex flex-col justify-center items-center gap-2.5 md:flex-row'>
-                <div className='md:w-1/3'><Image src="https://cdni.trulymadly.com/tm-static-assets-production/images/admin/fi_10174599.png" height={100} width={100} alt='/' /></div>
+                <div className='md:w-1/3'><Image src="https://cdni.trulymadly.com/tm-static-assets-production/images/admin/fi_10174599.png" height={100} width={100} alt='/' unoptimized /></div>
                 <div>
                   <div className='text-2xl font-medium leading-base text-center sm:text-right'>Search by Name & Check Compatibility</div>
                   <div className='text-sm font-[450px]'>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehende in voluptate velit esse cillum dolore eu fugiat nulla pariat.</div>
                 </div>
               </div>
               <div className='flex flex-col justify-center items-center gap-2.5 md:flex-row'>
-                <div className='w-1/3'><Image src="https://cdni.trulymadly.com/tm-static-assets-production/images/admin/fi_10174599.png" height={100} width={100} alt='/' /></div>
+                <div className='w-1/3'><Image src="https://cdni.trulymadly.com/tm-static-assets-production/images/admin/fi_10174599.png" height={100} width={100} alt='/' unoptimized /></div>
                 <div>
                   <div className='text-2xl font-medium leading-base text-center sm:text-right'>Search by Name & Check Compatibility</div>
                   <div className='text-sm font-[450px]'>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehende in voluptate velit esse cillum dolore eu fugiat nulla pariat.</div>
                 </div>
               </div>
               <div className='flex flex-col justify-center items-center gap-2.5 md:flex-row'>
-                <div className='w-1/3'><Image src="https://cdni.trulymadly.com/tm-static-assets-production/images/admin/fi_10174599.png" height={100} width={100} alt='/' /></div>
+                <div className='w-1/3'><Image src="https://cdni.trulymadly.com/tm-static-assets-production/images/admin/fi_10174599.png" height={100} width={100} alt='/' unoptimized /></div>
                 <div>
                   <div className='text-2xl font-medium leading-base text-center sm:text-right'>Search by Name & Check Compatibility</div>
                   <div className='text-sm font-[450px]'>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehende in voluptate velit esse cillum dolore eu fugiat nulla pariat.</div>
@@ -61,7 +61,7 @@ const CalculatorLayout: React.FC<Omit<CalculatorData, 'id' | 'subtitle'>> = ({ t
         <div className='flex gap-3 md:flex-row flex-col'>
           <div className='rounded-[20px] flex justify-center items-center bg-[#FFFFFF]'>
             <div className='flex justify-center items-center flex-col p-4 gap-2.5'>
-              <Image src="https://cdni.trulymadly.com/tm-static-assets-production/images/admin/fi_10174599.png" alt='profile-img' width={100} height={100} />
+              <Image src="https://cdni.trulymadly.com/tm-static-assets-production/images/admin/fi_10174599.png" alt='profile-img' width={100} height={100} unoptimized />
               <div className='text-sm text-common leading-[18px]'>Lorem Ipsum dolor sit amrt</div>
               <div className='text-common text-xs text-center font-[450px] leading-[18px]'>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris</div>
               <div className='bg-common px-6 py-2 text-[#FFFFFF] rounded-[10px]'>know more</div>
@@ -69,7 +69,7 @@ const CalculatorLayout: React.FC<Omit<CalculatorData, 'id' | 'subtitle'>> = ({ t
           </div>
           <div className='rounded-[20px] flex justify-center items-center bg-[#FFFFFF]'>
             <div className='flex justify-center items-center flex-col p-4 gap-2.5'>
-              <Image src="https://cdni.trulymadly.com/tm-static-assets-production/images/admin/fi_10174599.png" alt='profile-img' width={100} height={100} />
+              <Image src="https://cdni.trulymadly.com/tm-static-assets-production/images/admin/fi_10174599.png" alt='profile-img' width={100} height={100} unoptimized />
               <div className='text-sm text-common leading-[18px]'>Lorem Ipsum dolor sit amrt</div>
               <div className='text-common text-xs text-center font-[450px] leading-[18px]'>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris</div>
               <div className='bg-common px-6 py-2 text-[#FFFFFF] rounded-[10px]'>know more</div>
@@ -77,7 +77,7 @@ const CalculatorLayout: React.FC<Omit<CalculatorData, 'id' | 'subtitle'>> = ({ t
           </div>
           <div className='rounded-[20px] flex justify-center items-center bg-[#FFFFFF]'>
             <div className='flex justify-center items-center flex-col p-4 gap-2.5'>
-              <Image src="https://cdni.trulymadly.com/tm-static-assets-production/images/admin/fi_10174599.png" alt='profile-img' width={100} height={100} />
+              <Image src="https://cdni.trulymadly.com/tm-static-assets-production/images/admin/fi_10174599.png" alt='profile-img' width={100} height={100} unoptimized />
               <div className='text-sm text-common leading-[18px]'>Lorem Ipsum dolor sit amrt</div>
               <div className='text-common text-xs text-center font-[450px] leading-[18px]'>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris</div>
               <div className='bg-common px-6 py-2 text-[#FFFFFF] rounded-[10px]'>know more</div>
@@ -85,7 +85,7 @@ const CalculatorLayout: React.FC<Omit<CalculatorData, 'id' | 'subtitle'>> = ({ t
           </div>
           <div className='rounded-[20px] flex justify-center items-center bg-[#FFFFFF]'>
             <div className='flex justify-center items-center flex-col p-4 gap-2.5'>
-              <Image src="https://cdni.trulymadly.com/tm-static-assets-production/images/admin/fi_10174599.png" alt='profile-img' width={100} height={100} />
+              <Image src="https://cdni.trulymadly.com/tm-static-assets-production/images/admin/fi_10174599.png" alt='profile-img' width={100} height={100} unoptimized />
               <div className='text-sm text-common leading-[18px]'>Lorem Ipsum dolor sit amrt</div>
               <div className='text-common text-xs text-center font-[450px] leading-[18px]'>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris</div>
               <div className='bg-common px-6 py-2 text-[#FFFFFF] rounded-[10px]'>know more</div>

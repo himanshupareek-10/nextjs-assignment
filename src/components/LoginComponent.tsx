@@ -296,7 +296,7 @@ const LoginComponent = () => {
                     {isAndroid ? (
                         <Image src="https://trulymadly.com/images/ps-login-popup.webp" alt="download-icon" width={145} height={56} loading="lazy" />
                     ) : (
-                        <Image src="https://cdni.trulymadly.com/tm-static-assets-production/images/admin/Frame%208%20(1).png" alt="download-icon" width={145} height={56} loading="lazy" />
+                        <Image src="https://cdni.trulymadly.com/tm-static-assets-production/images/admin/Frame%208%20(1).png" alt="download-icon" width={145} height={56} loading="lazy" unoptimized />
                     )}
                 </div>
                 <div className='text-xs flex items-center justify-center text-[#616f80] leading-4'>By Continue you agree to our &nbsp;<a href="https://trulymadly.com/terms">terms</a>&nbsp;&&nbsp;<a href="https://trulymadly.com/privacy">privacy</a></div>

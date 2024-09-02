@@ -105,7 +105,7 @@ const Header = () => {
         </ul>
       </div>
         <div>
-          <Image src="https://cdni.trulymadly.com/tm-static-assets-production/web/logo.webp" alt='header-img' style={{ objectFit: 'contain', height: '30px', width: '120px' }} width={500} height={500} />
+          <Image src="https://cdni.trulymadly.com/tm-static-assets-production/web/logo.webp" alt='header-img' style={{ objectFit: 'contain', height: '30px', width: '120px' }} width={500} height={500} unoptimized />
         </div>
         <div className='bg-[#C3E3FF] text-[#0B72CC] rounded-[12px] py-[4px] px-[16px] font-bold' onClick={ToggleLogin}>
           Login

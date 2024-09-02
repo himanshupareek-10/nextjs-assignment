@@ -25,6 +25,7 @@ const LoginCarousel = () => {
                                 loading="lazy"
                                 height={500}
                                 width={500}
+                                unoptimized
                             />
                         </Carousel.Item>
                     ))}
