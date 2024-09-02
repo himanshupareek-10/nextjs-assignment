@@ -28,6 +28,10 @@ COPY --from=builder /usr/local/lib/node_modules /usr/local/lib/node_modules
 COPY --from=builder /usr/local/bin/node /usr/local/bin/node
 RUN ln -s /usr/local/lib/node_modules/npm/bin/npm-cli.js /usr/local/bin/npm
 
+RUN mkdir -p /usr/share/nginx/app/public \
+    && mkdir -p /usr/share/nginx/app/build \
+    && mkdir -p /usr/share/nginx/app/node_modules
+
 COPY --from=builder /home/code/next.config.mjs /usr/share/nginx/app
 COPY --from=builder /home/code/public /usr/share/nginx/app/public
 COPY --from=builder /home/code/.next /usr/share/nginx/app/build
