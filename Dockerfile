@@ -29,7 +29,8 @@ COPY --from=builder /usr/local/bin/node /usr/local/bin/node
 RUN ln -s /usr/local/lib/node_modules/npm/bin/npm-cli.js /usr/local/bin/npm
 
 RUN mkdir -p /usr/share/nginx/app/public \
-    && mkdir -p /usr/share/nginx/app/build 
+    && mkdir -p /usr/share/nginx/app/build \
+    && mkdir -p /usr/share/nginx/app/node_modules
 
 COPY --from=builder /home/code/next.config.mjs /usr/share/nginx/app
 COPY --from=builder /home/code/postcss.config.mjs /usr/share/nginx/app
@@ -39,6 +40,7 @@ COPY --from=builder /home/code/next-env.d.ts /usr/share/nginx/app
 COPY --from=builder /home/code/public /usr/share/nginx/app/public
 COPY --from=builder /home/code/build /usr/share/nginx/app/build
 COPY --from=builder /home/code/package.json /usr/share/nginx/app/package.json
+COPY --from=builder /home/code/node_modules /usr/share/nginx/app/node_modules
 
 RUN rm /etc/nginx/conf.d/default.conf
 
