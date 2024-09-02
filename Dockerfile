@@ -34,7 +34,7 @@ RUN mkdir -p /usr/share/nginx/app/public \
 
 COPY --from=builder /home/code/next.config.mjs /usr/share/nginx/app
 COPY --from=builder /home/code/public /usr/share/nginx/app/public
-COPY --from=builder /home/code/.next /usr/share/nginx/app/build
+COPY --from=builder /home/code/build /usr/share/nginx/app/build
 COPY --from=builder /home/code/node_modules /usr/share/nginx/app/node_modules
 COPY --from=builder /home/code/package.json /usr/share/nginx/app/package.json
 
